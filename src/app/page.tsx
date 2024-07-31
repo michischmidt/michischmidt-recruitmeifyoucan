@@ -1,4 +1,4 @@
-import { columns, type Job } from "./jobs/columns";
+import { columns } from "./jobs/columns";
 import { DataTable } from "./jobs/data-table";
 
 export default function HomePage() {
@@ -14,6 +14,7 @@ export default function HomePage() {
             {
               id: "1",
               title: "Full Stack Webdeveloper",
+              companyName: "weezer GmbH",
               recruiter: "Tammy Banani",
               techstack: [
                 "React, TypeScript",
@@ -25,7 +26,29 @@ export default function HomePage() {
                 "SQL",
                 "AWS",
               ],
-              salery: "50.000 - 80.000",
+              saleryRange: "50.000 - 80.000",
+              industry: "Autoindustrie",
+              location: "Berlin",
+              submitted: new Date(),
+              remote: "Hybrid",
+            },
+            {
+              id: "2",
+              title: "Full Stack Webdeveloper",
+              companyName: "weezer GmbH",
+              recruiter: "Tammy Banani",
+              techstack: [
+                "React, TypeScript",
+                "Java",
+                "SQL",
+                "AWS",
+                "React, TypeScript",
+                "Java",
+                "SQL",
+                "AWS",
+              ],
+              saleryRange: "50.000 - 80.000",
+              industry: "Autoindustrie",
               location: "Berlin",
               submitted: new Date(),
               remote: "Hybrid",

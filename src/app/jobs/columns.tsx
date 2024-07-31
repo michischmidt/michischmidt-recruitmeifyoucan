@@ -7,37 +7,24 @@ export type Job = {
   id: string;
   title: string;
   recruiter: string;
-  techstack?: string[];
-  salery: string;
-  location?: string;
+  saleryRange: string;
   submitted: Date;
-  remote: "Office" | "Hybrid" | "Remote";
+  companyName?: string;
+  techstack?: string[];
+  industry?: string;
+  location?: string;
+  remote?: "Office" | "Hybrid" | "Remote";
 };
 
 export const columns: ColumnDef<Job>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Alle auswählen"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Zeile auswählen"
-      />
-    ),
-  },
-  {
     accessorKey: "title",
     header: "Titel",
+    cell: ({ row }) => <div className="font-bold">{row.getValue("title")}</div>,
+  },
+  {
+    accessorKey: "companyName",
+    header: "Firma",
   },
   {
     accessorKey: "recruiter",
@@ -48,8 +35,12 @@ export const columns: ColumnDef<Job>[] = [
     header: "Tech Stack",
   },
   {
-    accessorKey: "salery",
-    header: "Gehalt",
+    accessorKey: "saleryRange",
+    header: () => <div className="">Gehalt in €</div>,
+  },
+  {
+    accessorKey: "industry",
+    header: "Branche",
   },
   {
     accessorKey: "location",
